@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginUser, isAuthenticated } from '../services/authService';
-import GraduationCap from '../components/GraduationCap';
 import Swal from 'sweetalert2';
 
 export default function Login() {
@@ -53,20 +52,11 @@ export default function Login() {
           <div className="flex flex-col items-start gap-4">
             <div className="-ml-4 mb-6">
               <Link to="/" className="secondary-button w-fit px-4 py-2 text-sm">
-                ← Back to Homepage
+                Back to home
               </Link>
             </div>
             <div className="topic-pill mb-6">Welcome back</div>
           </div>
-          <Link to="/" className="group mb-6 flex w-fit items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#24B1B1]/50 bg-[#007979] text-2xl shadow-lg shadow-[#24B1B1]/20 transition-all duration-300 group-hover:scale-105 group-hover:bg-[#065f5f] group-hover:shadow-[#24B1B1]/40">
-              <span className="transition-transform duration-300 group-hover:rotate-6"><GraduationCap /></span>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.22em] text-[#8dd3d1] transition-colors group-hover:text-[#FFE2AF]">CampusHub</p>
-              <h1 className="text-3xl font-black text-[#FFE2AF] transition-colors group-hover:text-[#fff7e6]">Student Portal</h1>
-            </div>
-          </Link>
 
           <p className="mb-8 max-w-md text-lg leading-8 text-[#f0d7a4]">
             Access your academic resources, explore course materials, and continue your learning journey with a smarter campus experience.

@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import Developers from './pages/Developers';
 import { isAuthenticated } from './services/authService';
 
 const ProtectedRoute = ({ children }) => {
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         {/* General / Public Dashboard Page */}
         <Route path="/" element={<Home />} />
+        <Route path="/developers" element={<Developers />} />
         
         {/* Auth Pages */}
         <Route path="/login" element={<Login />} />

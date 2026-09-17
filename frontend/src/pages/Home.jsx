@@ -15,7 +15,17 @@ export default function Home() {
   const [selectedSemester, setSelectedSemester] = useState('');
   const [sortOrder, setSortOrder] = useState('newest');
   const [currentPage, setCurrentPage] = useState(1);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const pageSize = 6;
+
+  useEffect(() => {
+    const handleScroll = () => setShowBackToTop(window.scrollY > 400);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -85,8 +95,7 @@ export default function Home() {
               <span className="transition-transform duration-300 group-hover:rotate-6"><GraduationCap /></span>
             </div>
             <div>
-              <div className="text-[10px] uppercase tracking-[0.24em] text-[#8dd3d1] transition-colors group-hover:text-[#FFE2AF]">CampusHub</div>
-              <div className="text-xl font-extrabold text-[#FFE2AF] transition-colors group-hover:text-[#fff7e6]">Academic Portal</div>
+              <div className="text-2xl font-black uppercase tracking-wide text-[#FFE2AF] transition-colors group-hover:text-[#fff7e6]">CAMPUSHUB</div>
             </div>
           </Link>
 
@@ -344,12 +353,24 @@ export default function Home() {
           <p className="text-sm text-[#f4dfb0]">
             Developed by <a href="https://likhon.com.bd/" target="_blank" rel="noreferrer" className="font-semibold text-[#fff0cf] transition hover:text-[#24B1B1]">Md. Likhon Sorkar</a> & <a href="https://ahsantech.vercel.app/" target="_blank" rel="noreferrer" className="font-semibold text-[#fdeab9] transition hover:text-[#24B1B1]">Md. Ashraful Ahsan</a>
           </p>
-          <p className="mt-2 text-xs uppercase tracking-[0.2em] text-[#d9f6f6]">
-            Backend by Md. Likhon Sorkar • Frontend by Md. Ashraful Ahsan
-          </p>
+          <Link to="/developers" className="secondary-button mt-5 px-4 py-2 text-sm">
+            Meet the developers
+          </Link>
           <p className="mt-5 text-xs text-[#f0dba6]">© 2026 CampusHub • Final Year Thesis Project</p>
         </div>
       </footer>
+
+      {showBackToTop && (
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Back to top"
+          title="Back to top"
+          className="fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-[#FFE2AF]/45 bg-[#0e6b6b] text-2xl font-bold leading-none text-[#FFE2AF] shadow-xl shadow-[#003f3f]/40 transition hover:-translate-y-1 hover:bg-[#24B1B1] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#FFE2AF] focus:ring-offset-2 focus:ring-offset-[#007979]"
+        >
+          ↑
+        </button>
+      )}
     </div>
   );
 }

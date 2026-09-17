@@ -45,20 +45,11 @@ export default function Register() {
           <div className="flex flex-col items-start gap-4">
             <div className="-ml-4 mb-6">
               <Link to="/" className="secondary-button w-fit px-4 py-2 text-sm">
-                ← Back to Homepage
+                Back to home
               </Link>
             </div>
             <div className="topic-pill mb-6">Join campushub</div>
           </div>
-          <Link to="/" className="group mb-6 flex w-fit items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#24B1B1] via-[#0e6b6b] to-[#065f5f] text-2xl shadow-lg shadow-[#24B1B1]/20 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[#24B1B1]/40">
-              <span className="transition-transform duration-300 group-hover:rotate-6">✨</span>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.22em] text-[#8dd3d1] transition-colors group-hover:text-[#FFE2AF]">Start today</p>
-              <h1 className="text-3xl font-black text-[#FFE2AF] transition-colors group-hover:text-[#fff7e6]">Create Account</h1>
-            </div>
-          </Link>
 
           <p className="mb-8 max-w-md text-lg leading-8 text-[#f0d7a4]">
             Become part of the academic sharing network and contribute to a stronger student learning community.
